@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of Thrones API Solution</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Game of Thrones API Explorer</h1>
+    </header>
+    
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'houses')">Houses</button>
+        <button class="tab-button" onclick="openTab(event, 'books')">Books</button>
+        <button class="tab-button" onclick="openTab(event, 'characters')">Characters</button>
+    </div>
+    
+    <div class="container">
+        <!-- Houses Tab -->
+        <div id="houses" class="tab-content active-content">
+            <h2>Houses of Ice and Fire</h2>
+            <p>This section fetches all houses and their regions from the API, orders them alphabetically, and allows you to download the result as a text file.</p>
+            
+            <button id="fetch-houses">Fetch Houses</button>
+            <button id="download-houses" disabled>Download Houses Text File</button>
+            
+            <div id="houses-loading" class="loading" style="display: none;">
+                Fetching houses data, please wait...
+            </div>
+            
+            <div id="houses-result" class="result-area" style="display: none;"></div>
+        </div>
+        
+        <!-- Books Tab -->
+        <div id="books" class="tab-content">
+            <h2>Books of Ice and Fire</h2>
+            <p>This section fetches all books from the API, creates a structured dataset, and allows you to download it as a CSV file.</p>
+            
+            <button id="fetch-books">Fetch Books</button>
+            <button id="download-books" disabled>Download Books CSV</button>
+            
+            <div id="books-loading" class="loading" style="display: none;">
+                Fetching books data, please wait...
+            </div>
+            
+            <div id="books-result" class="result-area" style="display: none;"></div>
+        </div>
+        
+        <!-- Characters Tab -->
+        <div id="characters" class="tab-content">
+            <h2>Characters of Ice and Fire</h2>
+            <p>This section fetches characters from the API, calculates their appearances, sorts them, and allows you to download the result as an Excel-compatible CSV file.</p>
+            <p><strong>Note:</strong> The API has thousands of characters, so this will take some time to complete.</p>
+            
+            <button id="fetch-characters">Fetch Characters</button>
+            <button id="download-characters" disabled>Download Characters CSV</button>
+            
+            <div id="characters-loading" class="loading" style="display: none;">
+                Fetching characters data, please wait...
+            </div>
+            
+            <div id="q3-progress" style="display: none;">
+                <div id="q3-progress-bar"></div>
+            </div>
+            
+            <div id="characters-result" class="result-area" style="display: none;"></div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
